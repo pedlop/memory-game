@@ -1,0 +1,21 @@
+<div class="cards-game__header">
+  <div class="cards-game__username">
+    <span *ngIf="username">Bom jogo <b>{{ user.username }}</b></span>
+  </div>
+  <span class="cards-game_round">Rodada número {{ rounds }}</span>
+  <button class="cards-game_reset" mat-raised-button color="primary" (click)="onClickResetGame()">Reset</button>
+</div>
+<div class="cards-list grid col-2 col-sm-2 col-md-3 col-lg-4 col-xl-6">
+  <ng-template ngFor let-card [ngForOf]="cards">
+    <mat-card class="cards-item" (click)="onClickChooseCard($event, card)">
+      <ng-template [ngIf]="card.visible || card.checked" [ngIfElse]="backcover">
+        <plop-cards-item [card]="card"></plop-cards-item>
+      </ng-template>
+      <ng-template #backcover>
+        <div class="backcover">
+          <mat-icon class="icon">games</mat-icon>
+        </div>
+      </ng-template>
+    </mat-card>
+  </ng-template>
+</div>
