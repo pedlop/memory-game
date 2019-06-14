@@ -1,0 +1,32 @@
+@import './colors';
+
+snack-bar-container {
+  &.mat-snack-bar-container {
+    display: flex;
+    justify-content: center; 
+    max-width: unset;
+  }
+}
+
+.snackbar-success {
+  background-color: $success;
+  color: white;
+}
+
+.snackbar-error {
+  background-color: $error;
+  color: white;
+}
+
+.mat-form-field-appearance-outline {
+  .mat-form-field-subscript-wrapper  {
+    padding: 0 0px;
+  }
+}
+
+mat-spinner {
+  &.mat-progress-spinner {
+    width: 70px;
+    height: 70px;
+  }
+}

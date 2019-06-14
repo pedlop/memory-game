@@ -1,0 +1,100 @@
+$grid-gap: 16px;
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @for $i from 1 through 10 {
+    $percentage: 100% / $i;
+    $gapValue: if($i == 1, 0px, ($grid-gap / $i) * ($i - 1));
+    &.col-#{$i} {
+      & > * {
+        width: calc(#{$percentage} - #{$gapValue});
+        &:nth-child(#{$i}n) {
+          margin: 0 0 $grid-gap 0;
+        }
+        &:not(:nth-child(#{$i}n)) {
+          margin: 0 $grid-gap $grid-gap 0;
+        }
+      }
+    }
+    @media screen and (min-width: 36em) {
+      &.col-sm-#{$i} {
+        & > * {
+          width: calc(#{$percentage} - #{$gapValue});
+          &:nth-child(#{$i}n) {
+            margin: 0 0 $grid-gap 0;
+          }
+          &:not(:nth-child(#{$i}n)) {
+            margin: 0 $grid-gap $grid-gap 0;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: 48em) {
+      &.col-md-#{$i} {
+        & > * {
+          width: calc(#{$percentage} - #{$gapValue});
+          &:nth-child(#{$i}n) {
+            margin: 0 0 $grid-gap 0;
+          }
+          &:not(:nth-child(#{$i}n)) {
+            margin: 0 $grid-gap $grid-gap 0;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: 64em) {
+      &.col-lg-#{$i} {
+        & > * {
+          width: calc(#{$percentage} - #{$gapValue});
+          &:nth-child(#{$i}n) {
+            margin: 0 0 $grid-gap 0;
+          }
+          &:not(:nth-child(#{$i}n)) {
+            margin: 0 $grid-gap $grid-gap 0;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: 80em) {
+      &.col-xl-#{$i} {
+        & > * {
+          width: calc(#{$percentage} - #{$gapValue});
+          &:nth-child(#{$i}n) {
+            margin: 0 0 $grid-gap 0;
+          }
+          &:not(:nth-child(#{$i}n)) {
+            margin: 0 $grid-gap $grid-gap 0;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: 90em) {
+      &.col-hg-#{$i} {
+        & > * {
+          width: calc(#{$percentage} - #{$gapValue});
+          &:nth-child(#{$i}n) {
+            margin: 0 0 $grid-gap 0;
+          }
+          &:not(:nth-child(#{$i}n)) {
+            margin: 0 $grid-gap $grid-gap 0;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: 120em) {
+      &.col-xh-#{$i} {
+        & > * {
+          width: calc(#{$percentage} - #{$gapValue});
+          &:nth-child(#{$i}n) {
+            margin: 0 0 $grid-gap 0;
+          }
+          &:not(:nth-child(#{$i}n)) {
+            margin: 0 $grid-gap $grid-gap 0;
+          }
+        }
+      }
+    }
+  }
+}

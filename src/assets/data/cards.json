@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "icon": "filter_1",
+    "text": "Um"
+  },
+  {
+    "id": 2,
+    "icon": "filter_2",
+    "text": "Dois"
+  },
+  {
+    "id": 3,
+    "icon": "filter_3",
+    "text": "Três"
+  },
+  {
+    "id": 4,
+    "icon": "filter_4",
+    "text": "Quatro"
+  },
+  {
+    "id": 5,
+    "icon": "filter_5",
+    "text": "Cinco"
+  },
+  {
+    "id": 6,
+    "icon": "filter_6",
+    "text": "Seis"
+  },
+  {
+    "id": 7,
+    "icon": "filter_7",
+    "text": "Sete"
+  },
+  {
+    "id": 8,
+    "icon": "filter_8",
+    "text": "Oito"
+  },
+  {
+    "id": 9,
+    "icon": "filter_9",
+    "text": "Nove"
+  },
+  {
+    "id": 10,
+    "icon": "filter",
+    "text": "Joker"
+  }
+]
