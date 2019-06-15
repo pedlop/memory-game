@@ -7,9 +7,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { DialogUserComponent } from './dialog-user/dialog-user.component';
 import { DialogStatisticsComponent } from './dialog-statistics/dialog-statistics.component';
+import { TablesModule } from '../tables/tables.module';
 
 @NgModule({
   declarations: [DialogUserComponent, DialogStatisticsComponent],
@@ -20,7 +22,9 @@ import { DialogStatisticsComponent } from './dialog-statistics/dialog-statistics
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule,
+    TablesModule
   ],
   entryComponents: [DialogUserComponent, DialogStatisticsComponent]
 })

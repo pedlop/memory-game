@@ -1,11 +1,11 @@
 .cards-game__header {
   display: flex;
   justify-content: space-between;
-  padding: 2em 0;
-}
-
-.cards-game__username {
-
+  align-items: center;
+  padding-bottom: 3em;
+  h1 {
+    margin: 0;
+  }
 }
 
 .cards-game_round {
@@ -24,9 +24,10 @@
 
 .cards-item {
   border-radius: unset;
-  width: 12em;
-  height: 18em;
-  margin-bottom: 1em;
+  width: 8em;
+  height: 12em;
+  margin: 0 0.5em 2em 0.5em;
+  cursor: pointer;
 }
 
 .backcover {

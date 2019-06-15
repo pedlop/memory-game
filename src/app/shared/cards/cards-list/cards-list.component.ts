@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, O
 
 
 import { timer, Subject, Observable } from 'rxjs';
-import { pairwise, map, filter, tap, startWith, takeUntil } from 'rxjs/operators';
+import { pairwise, map, tap, startWith, takeUntil } from 'rxjs/operators';
 
 import { Card } from '../../../core/api/api.model';
 import { UserService } from '../../../core/user/user.service';
@@ -55,7 +55,7 @@ export class CardsListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.cardObservable.pipe(
       takeUntil(this.unsubscribe)
-    ).subscribe(d => console.log(d));
+    ).subscribe();
 
     this.userService.profile$.pipe(
       takeUntil(this.unsubscribe),
@@ -69,22 +69,21 @@ export class CardsListComponent implements OnInit, OnDestroy {
   }
 
   onClickChooseCard(event, card) {
-    // this.optionsComment = card;
     if (!card.checked && !this.isPlaying) {
       card.visible = !card.visible;
       this.plays++;
       this.cardEvent.next(card);
-      console.warn(this.currentCard, this.lastCard);
       if (this.plays % 2 === 0) {
         this.rounds++;
         this.isPlaying = true;
-        if (this.currentCard.id === this.lastCard.id) {
-          console.warn('iiiiiiiiits a match');
+        if (
+          this.currentCard.id === this.lastCard.id &&
+          this.currentCard.position !== this.lastCard.position
+        ) {
           this.cards[this.currentCard.position - 1].checked = true;
           this.cards[this.lastCard.position - 1].checked = true;
           this.isPlaying = false;
         } else {
-          console.log('ELSE');
           timer(500).pipe(
             takeUntil(this.unsubscribe)
           ).subscribe(() => {
@@ -93,10 +92,8 @@ export class CardsListComponent implements OnInit, OnDestroy {
             this.isPlaying = false;
             this.changeDetectorRef.markForCheck();
           });
-          console.log('CARDS', this.cards);
         }
       }
-      console.warn(this.checkWinner());
       if (this.checkWinner()) {
         const userStats = {
           total_rounds: this.rounds,
@@ -105,21 +102,24 @@ export class CardsListComponent implements OnInit, OnDestroy {
         this.userService.setNewUser(userStats);
         this.dialogStatisticsService.open({
           userStats,
-          users: this.userService.getUsers()
-        });
+          users: this.userService.getUsers().sort((a, b) => a.total_rounds - b.total_rounds)
+        }).afterClosed().pipe(
+          takeUntil(this.unsubscribe),
+          tap(() => this.changeDetectorRef.markForCheck())
+        ).subscribe(() => this.resetGame());
       }
       this.changeDetectorRef.markForCheck();
     }
   }
 
-  private startGame() {
+  private startGame(): void {
     this.plays = 0;
     this.rounds = 0;
     this.lastCard = {};
     this.currentCard = {};
   }
 
-  private onClickResetGame() {
+  private resetGame(): void {
     this.startGame();
     this.cards = this.cards.map(card => ({ ...card, checked: false, visible: false }));
   }

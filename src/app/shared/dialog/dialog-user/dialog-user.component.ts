@@ -26,15 +26,14 @@ export class DialogUserComponent implements OnInit {
     private userService: UserService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.userForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       gameDifficulty: ['', Validators.required]
     });
   }
 
-  onSubmitUser() {
-    console.log(this.userForm.getRawValue());
+  onSubmitUser(): void {
     this.userService.setUserOptions(this.userForm.getRawValue());
     this.dialogRef.close();
   }
