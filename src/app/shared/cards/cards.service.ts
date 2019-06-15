@@ -17,8 +17,6 @@ export class CardsService {
   }
 
   private levelize = (response: Card[], level: GameLevels): Card[] => {
-    console.log(level);
-    console.warn(response.slice(0, this.levelsMapper.get(level)));
     const updatedCards = response.slice(0, this.levelsMapper.get(level));
     return updatedCards;
   }

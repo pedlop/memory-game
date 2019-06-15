@@ -1,3 +1,25 @@
-<div class="statisctics-content">
-  Parabéns {{ data.userStats.username }}
+<div class="statistics-content">
+  <span>Parabéns <b>{{ data.userStats.username }}</b></span>
+  <span>Você completou o jogo em <b>{{ data.userStats.total_rounds }}</b> rodadas</span>
+  <button class="cards-game_reset" mat-raised-button color="primary" (click)="onClickResetGame()">Resetar</button>
+</div>
+<div class="statistics-ranking">
+  <div class="statistics-ranking__title">Ranking</div>
+  <div class="statistics-ranking__hint">Escolha uma das dificuldades abaixo para ver os dados</div>
+  <div class="statistics-ranking__content">
+    <mat-tab-group>
+      <mat-tab label="Fácil">
+        <plop-table-ranking [data]="displayEasyData" [columns]="displayedColumns" [labels]="displayedLabels">
+        </plop-table-ranking>
+      </mat-tab>
+      <mat-tab label="Normal">
+        <plop-table-ranking [data]="displayMediumData" [columns]="displayedColumns" [labels]="displayedLabels">
+        </plop-table-ranking>
+      </mat-tab>
+      <mat-tab label="Difícil">
+        <plop-table-ranking [data]="displayHardData" [columns]="displayedColumns" [labels]="displayedLabels">
+        </plop-table-ranking>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
 </div>

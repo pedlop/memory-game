@@ -26,8 +26,6 @@ export class UserService {
 
   setNewUser(userStats: any) {
     const users = [].concat(this.getUsers(), [userStats]);
-    console.warn(userStats, users);
-    // const addingUser: any[] = this.getUsers().push(users);
     this.localStorageService.setItem('users', users);
   }
 

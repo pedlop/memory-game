@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { Card } from 'src/app/core/api/api.model';
 
@@ -8,31 +8,12 @@ import { Card } from 'src/app/core/api/api.model';
   styleUrls: ['./cards-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardsItemComponent implements OnInit, OnChanges {
+export class CardsItemComponent implements OnInit {
 
   @Input() card: Card;
-  @Output() onchoose: EventEmitter<void>;
 
+  constructor() { }
 
-  constructor() {
-    this.onchoose = new EventEmitter();
-  }
-
-  ngOnInit(): void {
-    console.log(this.card);
-  }
-
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (!changes.card.firstChange) {
-      console.warn(changes);
-    }
-  }
-
-  onClickChooseCard(event): void {
-    console.log(event);
-    // this.card.visible = !this.card.visible;
-    this.onchoose.emit();
-  }
+  ngOnInit(): void { }
 
 }

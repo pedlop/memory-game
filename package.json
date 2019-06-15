@@ -1,13 +1,26 @@
 {
   "name": "memory-game",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pedlop/memory-game"
+  },
+  "bugs": {
+    "url": "https://github.com/pedlop/memory-game/issues"
+  },
+  "description": "Web application to play the Memory Game",
+  "author": {
+    "name": "Pedro Victor Lopes",
+    "email": "pedlop.dev@gmail.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy:git": "ng build --prod --output-path docs --base-href https://pedlop.github.io/memory/ && ngh --dir=docs --no-silent"
   },
   "private": true,
   "dependencies": {

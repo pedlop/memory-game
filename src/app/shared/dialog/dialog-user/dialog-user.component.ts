@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -8,15 +8,16 @@ import { UserService } from '../../../core/user/user.service';
 @Component({
   selector: 'plop-dialog-user',
   templateUrl: './dialog-user.component.html',
-  styleUrls: ['./dialog-user.component.scss']
+  styleUrls: ['./dialog-user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DialogUserComponent implements OnInit {
 
   userForm: FormGroup;
   levels: any[] = [
-    { value: 'easy', viewValue: 'Fácil' },
-    { value: 'medium', viewValue: 'Normal' },
-    { value: 'hard', viewValue: 'Difícil' }
+    { value: 'easy', viewValue: 'Fácil (5 pares)' },
+    { value: 'medium', viewValue: 'Normal (7 pares)' },
+    { value: 'hard', viewValue: 'Difícil (10 pares)' }
   ];
 
   constructor(
@@ -26,15 +27,14 @@ export class DialogUserComponent implements OnInit {
     private userService: UserService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.userForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       gameDifficulty: ['', Validators.required]
     });
   }
 
-  onSubmitUser() {
-    console.log(this.userForm.getRawValue());
+  onSubmitUser(): void {
     this.userService.setUserOptions(this.userForm.getRawValue());
     this.dialogRef.close();
   }

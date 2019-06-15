@@ -1,7 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { map, flatMap, tap } from 'rxjs/operators';
+import { map, flatMap } from 'rxjs/operators';
 
 import { DialogUserService } from '../shared/dialog/dialog-user/dialog-user.service';
 import { ApiService } from '../core/api/api.service';

@@ -1,27 +1,51 @@
-# MemoryGame
+# Memory Game - MG
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+Aplicação Web que simula um jogo da memória com 10 cartas no modo difícil.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Tecnologias
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Memory Game usa um número de projetos abertos para trabalhar propriamente:
 
-## Build
+* [Angular 7] - HTML enhanced for web apps!
+* [Angular Material] - Material Design components for Angular.
+* [Visual Studio Code] - awesome web-based text editor.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+E claro, Memory Game é 'open source' [public repository][mg] no GitHub.
 
-## Running unit tests
+### Instalação
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+MG requer [Node.js](https://nodejs.org/) versão 11+ para rodar.
 
-## Running end-to-end tests
+Clone o projeto
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Instale as 'dependencies' e 'devDependencies' e rode a aplicação.
 
-## Further help
+```sh
+$ cd memory-game
+$ npm install
+$ npm start
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Acesse seu browser at http://localhost:4200/
+
+#### Building for source
+Para versão de produção:
+```sh
+$ npm run build
+```
+
+### A Fazer
+
+ - Write Tests
+ - Progressive Web App
+
+**Software de Graça!**
+
+   [mg]: <https://github.com/pedlop/memory-game>
+   [Visual Studio Code]: <https://code.visualstudio.com/>
+   [Angular 7]: <https://angular.io/>
+   [Angular Material]: <https://material.angular.io>
+

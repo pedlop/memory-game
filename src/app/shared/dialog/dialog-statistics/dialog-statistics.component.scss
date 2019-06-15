@@ -1,0 +1,32 @@
+.statistics-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+  span {
+    margin-bottom: 0.5em;
+  }
+}
+
+.statistics-ranking__title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.statistics-ranking__hint {
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  margin-bottom: 1em;
+}
+
+.statistics-ranking__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

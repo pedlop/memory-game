@@ -12,16 +12,17 @@ export class DialogStatisticsService {
     private dialog: MatDialog
   ) { }
 
-  open(data: any): void {
-    this.dialog.open(DialogStatisticsComponent, {
+  open(data: any) {
+    return this.dialog.open(DialogStatisticsComponent, {
       autoFocus: true,
       role: 'dialog',
       restoreFocus: true,
-      maxWidth: '400px',
+      maxWidth: '600px',
+      maxHeight: '500px',
       hasBackdrop: true,
-      disableClose: true,
+      disableClose: false,
       closeOnNavigation: true,
-      width: '400px',
+      width: '600px',
       data
     });
   }
