@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef, Output, EventEmitter, OnDestroy } from '@angular/core';
 
-
 import { timer, Subject, Observable } from 'rxjs';
 import { pairwise, map, tap, startWith, takeUntil } from 'rxjs/operators';
 

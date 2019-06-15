@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -8,7 +8,8 @@ import { UserService } from '../../../core/user/user.service';
 @Component({
   selector: 'plop-dialog-user',
   templateUrl: './dialog-user.component.html',
-  styleUrls: ['./dialog-user.component.scss']
+  styleUrls: ['./dialog-user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DialogUserComponent implements OnInit {
 
