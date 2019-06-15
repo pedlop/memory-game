@@ -14,9 +14,9 @@ export class DialogUserComponent implements OnInit {
 
   userForm: FormGroup;
   levels: any[] = [
-    { value: 'easy', viewValue: 'Fácil' },
-    { value: 'medium', viewValue: 'Normal' },
-    { value: 'hard', viewValue: 'Difícil' }
+    { value: 'easy', viewValue: 'Fácil (5 pares)' },
+    { value: 'medium', viewValue: 'Normal (7 pares)' },
+    { value: 'hard', viewValue: 'Difícil (10 pares)' }
   ];
 
   constructor(
